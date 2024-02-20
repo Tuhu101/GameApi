@@ -22,7 +22,6 @@ public class GameController {
         return games;
     }*/
 
-    // Inject gameService. \\
     @GetMapping
     List<Game> getAllGames() {
         return gameService.getAllGames();
@@ -30,20 +29,25 @@ public class GameController {
 
     @PostMapping
     void createGame(@RequestBody Game game) {
-        games.add(game);
+        gameService.createGame(game);
     }
 
-    @GetMapping("/{id}")
+
+    /*@GetMapping("/{id}")
     Game getGameById(@PathVariable int id) {
         Game gameFound = games.stream()
                 .filter(game -> id == (game.getId()))
                 .findFirst()
                 .orElse(null);
         return gameFound;
+    }*/
+    @GetMapping("/{id}")
+    Game getGameById(@PathVariable int id) {
+        return gameService.getGameById(id);
     }
 
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     Boolean deleteGameById(@PathVariable int id) {
         Game gameFound = games.stream()
                 .filter(game -> id == (game.getId()))
@@ -54,16 +58,26 @@ public class GameController {
             return true;
         }
         return false;
+    }*/
+    @DeleteMapping("/{id}")
+    void deleteGameById(@PathVariable int id) {
+        gameService.delete(id);
     }
 
-    @PutMapping()
+    /*@PutMapping()
     public Boolean updateGameById(@RequestBody Game updatedGame) {
        for(Game game : Data.games){
            Data.games.set(Data.games.indexOf(game), updatedGame);
            return true;
        }
        return false;
-    }
+    }*/
+
+    // Big Questions. \\
+    /*@PutMapping()
+    public void updateGameById(@RequestBody Game updatedGame) {
+       gameService.set(updatedGame);
+    }*/
 
 
 
