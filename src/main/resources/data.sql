@@ -1,0 +1,1 @@
+INSERT INTO game (name, category) VALUES ('Gta 5', 1)

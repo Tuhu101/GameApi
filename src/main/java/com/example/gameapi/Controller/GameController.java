@@ -2,6 +2,7 @@ package com.example.gameapi.Controller;
 
 import com.example.gameapi.model.Data;
 import com.example.gameapi.model.Game;
+import jakarta.persistence.Entity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,4 +54,7 @@ public class GameController {
        }
        return false;
     }
+
+
+
 }
