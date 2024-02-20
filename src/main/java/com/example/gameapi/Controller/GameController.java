@@ -47,8 +47,8 @@ public class GameController {
 
     @PutMapping()
     public Boolean updateGameById(@RequestBody Game updatedGame) {
-       for(Game gg : Data.games){
-           Data.games.set(Data.games.indexOf(gg), updatedGame);
+       for(Game game : Data.games){
+           Data.games.set(Data.games.indexOf(game), updatedGame);
            return true;
        }
        return false;
