@@ -2,7 +2,9 @@ package com.example.gameapi.Controller;
 
 import com.example.gameapi.model.Data;
 import com.example.gameapi.model.Game;
+import com.example.gameapi.service.GameService;
 import jakarta.persistence.Entity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,9 +15,17 @@ import static com.example.gameapi.model.Data.games;
 @RestController
 @RequestMapping("api/games")
 public class GameController {
-    @GetMapping
+    @Autowired
+    GameService gameService;
+    /*@GetMapping
     public List<Game> getAllGames() {
         return games;
+    }*/
+
+    // Inject gameService. \\
+    @GetMapping
+    List<Game> getAllGames() {
+        return gameService.getAllGames();
     }
 
     @PostMapping
